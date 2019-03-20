@@ -57,4 +57,12 @@ public class PlayerMovement : MonoBehaviour
         bool walking = h != 0f || v != 0f;
         anim.SetBool("IsWalking", walking);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
